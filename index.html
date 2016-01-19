@@ -1,0 +1,431 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>电子产品世界  2015 Microchip系列视频问答（第十二期） ——  MCP3421电池电量监测演示板</title>
+<link type="text/css" rel="stylesheet" href="style/style.css" />
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/move.js"></script>
+<script src="js/survey2015.js"></script>
+<!-- html5.js for IE less than 9 -->
+<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<SCRIPT LANGUAGE="JavaScript">
+	//至少选择一个(一个FORM内多组checkbox)
+	function   getCheckedCheckboxesNum(nameOfCheckBox)   {   
+		var   theNum=0;   
+		var   theCheckboxInputs=document.getElementsByName(nameOfCheckBox);   
+		for   (var i=0;i<theCheckboxInputs.length;i++)   {   
+			if(theCheckboxInputs[i].checked)   theNum++;   
+		}   
+		return theNum;   
+	}   
+	function checkText(textID){
+		var textInput = document.getElementById(textID);
+		var textCheck = true;
+		if (textInput.value.replace(/^\s+|\s+$/g,'')==''){
+			textCheck = false;	
+		}
+		return textCheck;
+	}
+	//checkradio
+function checkradio(name){
+	var check = false;
+	var radio = document.getElementsByName(name);
+	for(var i = 0; i < radio.length; i++){   
+        if(radio[i].checked){   
+            check = true;   
+        }   
+    }
+    return check;
+}
+	//check textarea
+function checkArea(id){
+	var area = document.getElementById(id);
+	var areavalue = area.value;
+	var check = true;
+	while(areavalue.indexOf(" ")>=0){//去除空格 
+		areavalue=areavalue.replace(" ","");
+	}
+	if(areavalue == ""){
+		check = false;
+	}
+	return check;
+}
+	function check_select(){
+		var check_array = true;
+			if(!checkradio("Q1")){
+				alert("请选择Q1!");
+				return false;
+			}else if(!checkradio("Q2")){
+				alert("请选择Q2!");
+				return false;
+			}else if(!checkradio("Q3")){
+				alert("请选择Q3!");
+				return false;
+			}else if(!checkradio("Q4")){
+				alert("请选择Q4!");
+				return false;
+			}else if(!checkradio("Q5")){
+				alert("请选择Q5!");
+				return false;
+			}else{
+				return true;
+			}
+	}
+</script>
+<body>
+<header> <img src="images/banner.jpg" border="0" usemap="#Map">
+  <map name="Map">
+    <area shape="rect" coords="0,8,139,45" href="http://www.eepw.com.cn/" target="_blank" onFocus="this.blur()">
+  </map>
+</header>
+<div id="main" style="border:solid 1px #CCC;border-radius:10px;">
+  <div class="review">
+    <p> 2013往期回顾： <a href="http://www.eepw.com.cn/event/action/Microchip_survey2013/1/index.html" target="_blank">第一期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2013/2/index.html" target="_blank">第二期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2013/3/index.html" target="_blank">第三期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2013/4/index.html" target="_blank">第四期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2013/5/index.html" target="_blank">第五期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2013/6/index.html" target="_blank">第六期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2013/7/index.html" target="_blank">第七期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2013/8/index.html" target="_blank">第八期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2013/9/index.html" target="_blank">第九期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2013/10/index.html" target="_blank">第十期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2013/11/index.html" target="_blank">第十一期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2013/12/index.html" target="_blank">第十二期</a> </p>
+    <p> 2014往期回顾： <a href="http://www.eepw.com.cn/event/action/Microchip_survey2014/1/index.html" target="_blank">第一期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2014/2/index.html" target="_blank">第二期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2014/3/index.html" target="_blank">第三期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2014/4/index.html" target="_blank">第四期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2014/5/index.html" target="_blank">第五期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2014/6/index.html" target="_blank">第六期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2014/7/index.html" target="_blank">第七期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2014/8/index.html" target="_blank">第八期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2014/9/index.html" target="_blank">第九期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2014/10/index.html" target="_blank">第十期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2014/11/index.html" target="_blank">第十一期</a> </p>
+    <p> 2015往期回顾： <a href="http://www.eepw.com.cn/event/action/Microchip_survey2015/1/index.html" target="_blank">第一期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2015/2/index.html" target="_blank">第二期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2015/3/index.html" target="_blank">第三期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2015/4/index.html" target="_blank">第四期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2015/5/index.html" target="_blank">第五期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2015/6/index.html" target="_blank">第六期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2015/7/index.html" target="_blank">第七期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2015/8/index.html" target="_blank">第八期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2015/9/index.html" target="_blank">第九期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2015/10/index.html" target="_blank">第十期</a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2015/11/index.html" target="_blank">第十一期</a> </p>
+  </div>
+  <div class="introduce">
+    <div class="title clear">
+      <div class="fontArial">01</div>
+      <h2>活动简介</h2>
+      <span class="fontArial"><em>/</em>INTRODUCTION</span> </div>
+    <div class="content">
+      <h2>2015 第十二期：MCP3421电池电量监测演示板</h2>
+      <p>活动时间：2015年12月1日 - 2015年12月31日</p>
+      <p>所有问题全部来自于视频，答案显而易见，看过就可轻松的知道正确答案。全部答对者将获得抽奖资格，共计100名获奖者，奖品由Microchip公司提供。</p>
+    </div>
+  </div>
+  <div class="prizes">
+    <div class="title clear">
+      <div class="fontArial">02</div>
+      <h2>活动奖品</h2>
+      <span class="fontArial"><em>/</em>PRIZES</span> </div>
+    <div class="content clear" style="width:500px;margin:0 auto;position:relative;">
+      <!--<div style="float:left;-width: 287px; padding:0 20px; height: 190px; border: none; position: relative;"> <img src="images/prize0.png">
+        <p style="text-align: center; position: absolute; width: 100%;left:-2px; bottom: 30px;"> dsPIC33EV 5V CAN-LIN Starter Kit</p>
+      </div>-->
+      <div style="float:left;width: 250px;   height: 190px; border: none; position: relative;"> <img src="images/prizeNew.png">
+        <p style="text-align: center; position: absolute; width: 100%;left:-2px; bottom: 30px;"> 迷你USB香薰灯（3名）</p>
+      </div>
+      <div style="float:left;width: 250px;   height: 190px; border: none; position: relative;"> <img src="images/prize.png">
+        <p style="text-align: center; position: absolute; width: 100%;left:-2px; bottom: 30px;"> 10元京东卡(100名) </p>
+      </div>
+    </div>
+    <!--<p style="color:red;padding-left:240px;position:relative;top:-20px;">共计三人每人获得两份礼品 </p>-->
+  </div>
+  <div class="title  round clear">
+    <div class="fontArial">03</div>
+    <h2>本期视频</h2>
+    <span class="fontArial"><em>/</em>VIDEO</span> </div>
+  <h2 class="videoTitle">MCP3421电池电量监测演示板</h2>
+  <div class="video radius clear">
+    <div class="content clear">
+      <div class="videoPho radius"> <a href="http://v.eepw.com.cn/video/play/id/14107" target="_blank"><img src="images/video.jpg"></a> </div>
+      <div class="videoCon">
+        <div class="about radius">
+          <p style="height:120px;"><strong>简 介：</strong>本视频将向您介绍如何利用高精度∆-Σ ADC和PIC®单片机开发高性价比的电池电量监测解决方案。在本解决方案中，采用的是Microchip MCP3421 ADC和PIC18F4550 MCU，并演示了如何通过MCP3421电池电量监测演示板进行电池电量的监测。[<a href="http://v.eepw.com.cn/video/play/id/14107" target="_blank">点击查看完整视频</a>] </p>
+        </div>
+        <div class="videoTit radius">
+          <h2>相关知识</h2>
+        </div>
+        <div class="rel radius">
+          <ul>
+            <li>- <a href="http://count.eepw.com.cn/count/doRedirect?http://v.eepw.com.cn/video/play/id/2420" target="_blank">MCP2210及其评估套件</a></li>
+            <li>- <a href="http://count.eepw.com.cn/count/doRedirect?http://v.eepw.com.cn/video/play/id/2589" target="_blank">Microchip Wi-Fi通信演示板及解决方案</a></li>
+            <li>- <a href="http://count.eepw.com.cn/count/doRedirect?http://v.eepw.com.cn/video/play/id/2586">Microchip模拟和接口产品树形导览（上）</a></li>
+            <li>- <a href="http://count.eepw.com.cn/count/doRedirect?http://v.eepw.com.cn/video/play/id/2587" target="_blank">Microchip模拟和接口产品树形导览（中）</a></li>
+            <li>- <a href="http://count.eepw.com.cn/count/doRedirect?http://v.eepw.com.cn/video/play/id/2588" target="_blank">Microchip模拟和接口产品树形导览（下）</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="list clear"> <a href="http://www.eepw.com.cn/event/action/Microchip/index.html" target="_blank"><img src="images/banner_350x60.jpg"></a> <a href="http://www.eepw.com.cn/event/action/Microchip_survey2015/11/index.html" target="_blank" style="margin-right:20px;">2015每月视频有奖问答第十一期</a>第十一期正确答案：ADDCD<br/>
+    <span id="listBtn" class="red">2015第十一期获奖名单</span> </div>
+  <ul id="list" style="display:none;" class="radius">
+    <li>王小七 </li>
+    <li>yun1091724578 </li>
+    <li>荣丰宇 </li>
+    <li>1542532964 </li>
+    <li>小伟伟 </li>
+    <li>2081449057 </li>
+    <li>浩淼翰 </li>
+    <li>bjs1688 </li>
+    <li>zheng0212 </li>
+    <li>422799304 </li>
+    <li>幻魂1990 </li>
+    <li>cquwuqiang </li>
+    <li>shamoonee </li>
+    <li>天师猫神 </li>
+    <li>abszy </li>
+    <li>simonzhao </li>
+    <li>nvidia </li>
+    <li>boomter </li>
+    <li>SYD2012 </li>
+    <li>S0117 </li>
+    <li>cable1980 </li>
+    <li>chenbingjy </li>
+    <li>chhp2000 </li>
+    <li>stclq </li>
+    <li>chweshen </li>
+    <li>cpeccbgs </li>
+    <li>cwm1806 </li>
+    <li>davacao </li>
+    <li>deepofyou </li>
+    <li>dong20120129 </li>
+    <li>erecing </li>
+    <li>eringdeng </li>
+    <li>friends </li>
+    <li>fuhao8306 </li>
+    <li>gtango </li>
+    <li>hhniu </li>
+    <li>hryyyu </li>
+    <li>iroddert </li>
+    <li>jangyong71 </li>
+    <li>jienzheng </li>
+    <li>luker </li>
+    <li>caokang </li>
+    <li>KarelMrp </li>
+    <li>kingsd840526 </li>
+    <li>kongper90 </li>
+    <li>kwang998 </li>
+    <li>jy9199 </li>
+    <li>lark1 </li>
+    <li>linghz </li>
+    <li>lurong5462 </li>
+    <li>ly046818 </li>
+    <li>xnlan12蓝 </li>
+    <li>78530984 </li>
+    <li>maomaoyu000 </li>
+    <li>kurong2010 </li>
+    <li>menteowy </li>
+    <li>mzb2012 </li>
+    <li>nangando </li>
+    <li>niaotang </li>
+    <li>pczjwolf </li>
+    <li>pertwangzy </li>
+    <li>phionnex </li>
+    <li>qanyongb </li>
+    <li>qonekite </li>
+    <li>qonner </li>
+    <li>bbanianj </li>
+    <li>rui82sun </li>
+    <li>silangnima </li>
+    <li>sjzszxzyc </li>
+    <li>skreben </li>
+    <li>stcic2002 </li>
+    <li>stcpter </li>
+    <li>hkwilliam </li>
+    <li>sunbowei2000 </li>
+    <li>sunbw </li>
+    <li>tanggle365 </li>
+    <li>tmpeger </li>
+    <li>verilog90 </li>
+    <li>wandy58 </li>
+    <li>wenli3453 </li>
+    <li>maowenmingmt </li>
+    <li>wjhandyam </li>
+    <li>wriepc </li>
+    <li>wuyong0904 </li>
+    <li>wwzhang </li>
+    <li>下雨天 </li>
+    <li>xieqiang2012 </li>
+    <li>xpfan </li>
+    <li>XQ331 </li>
+    <li>擎天柱 </li>
+    <li>youyoong </li>
+    <li>yu19820812 </li>
+    <li>yu7813 </li>
+    <li>zhangjian1985 </li>
+    <li>zhangmkind </li>
+    笑鸟007
+    </li>
+    <li>张雨 </li>
+    <li>zqh1630 </li>
+    <li>zhkang89 </li>
+    <li>quickmouse </li>
+    <!--<ul style="clear:both; padding:20px 0; "  >
+	<li style="color:red;"><strong>电子灯获奖者</strong></li>
+	<li>quickmouse</li>
+	<li>lark1</li>
+	<li>JINRU</li>
+</ul>-->
+  </ul>
+  <div class="introduce">
+    <div class="title  round clear">
+      <div class="fontArial">04</div>
+      <h2>问卷</h2>
+      <span class="fontArial"><em>/</em>QUESTION</span> </div>
+    <div class="content">
+      <div class="que">
+        <div>
+          <h2>2015第十一期问题</h2>
+        </div>
+        <form id="form1" name="form1" method="post" onSubmit="if (!check_select()) return false;" action="http://form.eepw.com.cn/form/db/table/Microchip_survey2015_12_20151123" >
+          <div class="question">
+            <div class="qTitle">
+              <h2><span>Q1.</span> 对于电池电量测量说法不正确的是：</h2>
+            </div>
+            <ul>
+              <li><span>A.
+                <input name="Q1" type="radio" value="A" />
+                </span>在电池充电和电池状态指示器中使用的电池电量测量是通过测量电池的放电与充电电压实现的</li>
+              <li><span>B.
+                <input name="Q1" type="radio" value="B" />
+                </span>在电池充电和电池状态指示器中使用的电池电量测量是通过测量电池的放电与充电电流实现的</li>
+              <li><span>C.
+                <input name="Q1" type="radio" value="C" />
+                </span>电池的状态极大程度上受到温度的影响</li>
+              <li><span>D.
+                <input name="Q1" type="radio" value="D" />
+                </span>电池的状态极大程度上受到电池使用时间的影响</li>
+            </ul>
+          </div>
+          <div class="question">
+            <div class="qTitle">
+              <h2><span>Q2.</span> 以下哪一个值不能作为MCP3421中PGA的增益倍数值：</h2>
+            </div>
+            <ul>
+              <li><span>A.
+                <input name="Q2" type="radio" value="A" />
+                </span>2</li>
+              <li><span>B.
+                <input name="Q2" type="radio" value="B" />
+                </span>8</li>
+              <li><span>C.
+                <input name="Q2" type="radio" value="C" />
+                </span>16</li>
+              <li><span>D.
+                <input name="Q2" type="radio" value="D" />
+                </span>4</li>
+            </ul>
+          </div>
+          <div class="question">
+            <div class="qTitle">
+              <h2><span>Q3.</span> 对于MCP3421的内部结构说明错误的是：</h2>
+            </div>
+            <ul>
+              <li><span>A.
+                <input name="Q3" type="radio" value="A" />
+                </span>具有程控增益放大器PGA</li>
+              <li><span>B.
+                <input name="Q3" type="radio" value="B" />
+                </span>具有4.096V的标准内部参考电压</li>
+              <li><span>C.
+                <input name="Q3" type="radio" value="C" />
+                </span>具有时钟模块</li>
+              <li><span>D.
+                <input name="Q3" type="radio" value="D" />
+                </span>与MCU之间通信采用I2C接口</li>
+            </ul>
+          </div>
+          <div class="question">
+            <div class="qTitle">
+              <h2><span>Q4.</span> 下列关于MCP3421的参数说明有误的是：</h2>
+            </div>
+            <ul>
+              <li><span>A.
+                <input name="Q4" type="radio" value="A" />
+                </span>采用SOT-23小型封装</li>
+              <li><span>B.
+                <input name="Q4" type="radio" value="B" />
+                </span>内部集成16位的△-∑模数转换器</li>
+              <li><span>C.
+                <input name="Q4" type="radio" value="C" />
+                </span>具有小尺寸，低功耗特性</li>
+              <li><span>D.
+                <input name="Q4" type="radio" value="D" />
+                </span>集成了时钟模块</li>
+            </ul>
+          </div>
+          <div class="question">
+            <div class="qTitle">
+              <h2><span>Q5.</span> 对评估板功能与参数说明正确的是：</h2>
+            </div>
+            <ul>
+              <li><span>A.
+                <input name="Q5" type="radio" value="A" />
+                </span> 演示板装有蜂鸣器，当电池电压高于其初始值50%时用于提醒用户</li>
+              <li><span>B.
+                <input name="Q5" type="radio" value="B" />
+                </span>演示板只能对碱性不可充电电池的电量进行监测</li>
+              <li><span>C.
+                <input name="Q5" type="radio" value="C" />
+                </span> 演示板MCU可从MCP3421的数字接口直接得到电池电量信息，省掉了计算环节</li>
+              <li><span>D.
+                <input name="Q5" type="radio" value="D" />
+                </span>通过更换固件，演示板可以对锂离子和锂聚合物电池进行充电管理</li>
+            </ul>
+          </div>
+          <input name="userid" id="userid" type="hidden" value=""/>
+          <div class="subBtn">
+            <input type="submit" value="提 交">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<footer style="border-radius:10px;"> <a href="http://www.eepw.com.cn/event/company/about.html" target="_blank">关于我们</a> | <a href="http://www.eepw.com.cn/event/company/contact.html" target="_blank">联系我们</a> | <a href="http://www.eepw.com.cn/event/company/ad.html" target="_blank">广告服务</a> | <a href="http://job.eepw.com.cn/" target="_blank">人才招聘</a> | <a href="http://www.eepw.com.cn/company/link" target="_blank">友情链接</a> | <a href="http://www.eepw.com.cn/event/action/mapNav/map.html" target="_blank">网站地图</a><br />
+  <span class="fontArial">Copyright ©2000-2014</span> 《电子产品世界》杂志社 版权所有 </footer>
+<!--<script>
+//先得到cookie
+function getCookie(cookie_name){  
+	var allcookies = document.cookie;  
+	var cookie_pos = allcookies.indexOf(cookie_name);    
+	// 如果找到了索引，就代表cookie存在，    
+	// 反之，就说明不存在。   
+	if (cookie_pos != -1)   {   
+		// 把cookie_pos放在值的开始，只要给值加1即可。   
+		cookie_pos += cookie_name.length + 1;   
+		var cookie_end = allcookies.indexOf(";", cookie_pos);
+		if (cookie_end == -1)   {   
+			cookie_end = allcookies.length;   
+		}    
+		var value = unescape(allcookies.substring(cookie_pos, cookie_end));    
+	}   
+	return value;   
+} 
+var userid = getCookie("userid");
+var role = getCookie("role");
+//var username = getCookie("username");
+//var remember = getCookie("remember");
+if(!userid || userid==''){
+	var returnurl = encodeURIComponent("http://www.eepw.com.cn/event/action/Microchip_survey2015/12/index.html");
+	window.location.href="http://passport.eepw.com.cn/auth/login?url="+returnurl;
+}
+var vuserid = document.getElementById('userid');
+vuserid.value = userid;
+//var vusername = document.getElementById('wpgusername');
+//vusername.value = username;
+</script>-->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-10420927-1";
+_udn="eepw.com.cn";
+urchinTracker();
+</script>
+<div style="display:none;">
+<script language="javascript" src="http://count26.51yes.com/click.aspx?id=264945025&logo=12" ></script>
+<script src="http://s6.cnzz.com/stat.php?id=3241344&web_id=3241344&show=pic1" language="JavaScript"></script>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fc5e9057ff0d62338aaf443148e00157f' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script>
+// 百度统计代码
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?eafc093f85e5285dbd72593922dbaaa9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+@charset "utf-8";
+/*
+	EEPW官网：www.eepw.com.cn	
+	author: liudalang
+*/
+
+/* reset */
+body,h1,h2,h3,h4,h5,p,dl,dd,ul,ol,form,input,textarea,th,td,select { margin:0; padding:0; }
+em { font-style:normal; }
+li { list-style:none; }
+a { text-decoration:none; }
+img { border:none; vertical-align:top; }
+table { border-collapse:collapse; }
+input,textarea { outline:none; }
+textarea { resize:none; overflow:auto; }
+body { background:url(../images/bg.jpg) repeat-x #C7D9D9;font-size:12px; font-family:"微软雅黑"; color:#333;}
+/* end reset */
+
+/* public */
+.clear { zoom:1; }
+.clear:after { content:''; display:block; clear:both; }
+.fontArial{font-family:'Arial';}
+.fl { float:left; }
+.fr { float:right; }
+.gradient {
+	background:-moz-linear-gradient(top, #FFFFFF, #f8f8f8);
+	background:-webkit-linear-gradient(top, #FFFFFF, #f8f8f8);
+	background:-ms-linear-gradient(top, #FFFFFF, #f8f8f8);
+	background:linear-gradient(top, #FFFFFF, #f8f8f8);
+	-ms-filter:"progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#FFFFFF, endColorstr=#f8f8f8)";
+	+background:#f9f9f9;
+}
+.triangle_up, .triangle_down_red, .triangle_down_gray { position:absolute; width:0; height:0; overflow:hidden; border-left:4px solid transparent; border-right:4px solid transparent; }
+.triangle_up { border-bottom:4px solid #ca0309; }
+.triangle_down_red { border-top:4px solid #ca0309; }
+.triangle_down_gray { border-top:4px solid #c4bdbd; }
+.title{height:36px;line-height:36px;border-radius:6px;border:solid 1px #DBDBDB;overflow:hidden;}
+.title div{float:left;width:56px;height:36px;text-align:center;border-right:solid 1px #FFF;color:#F9D4CE;font-size:28px;font-weight:bold;background:#D50002}
+.title h2{float:left;padding-left:10px;height:36px;color:#000;font-size:20px;}
+.title span{float:left;height:32px;color:#ED2724;font-size:12px;}
+.title span em{padding-left:5px;font-weight:normal;font-size:20px;}
+.radius{border-radius:6px;overflow:hidden;}
+/* end public */
+
+/* layout */
+header,footer,#main{margin:0 auto;width:900px;background:#E3ECEC;}
+header{height:200px;background:gray;}
+#main{padding:30px 50px;width:800px;}
+footer{padding:20px 0;background:#2F2F2F;text-align:center;line-height:1.6em;color:#CCC;}
+/* end layout */
+.review,.prizes,.video{margin-bottom:20px;}
+.review  a{color:#118899;}
+.review p a:hover{color:#CC0000;}
+
+.introduce{}
+.introduce .content{padding:20px 10px;}
+.introduce .content h2{font-size:16px;}
+.introduce .content p{margin-top:10px;}
+
+.prizes .content{padding:10px 10px;text-align:center;}
+
+.video{margin-top:10px;background:#FFF;border:solid 1px #C8C8C8;}
+.video .content{padding:10px;background:#F1F1F1;}
+.video h2{height:36px;color:#ccc;}
+.videoPho{float:left;width:400px;height:302px;}
+.videoPho img{border:solid 1px #000;}
+.videoTitle{margin-top:20px;font-size:14px;}
+.videoCon{float:right;width:370px;height:300px;background:#FFF;}
+.about,.rel{padding:10px;border:solid 1px #C8C8C8;}
+.about p{color:#7B7B7B;line-height:1.6em;}
+.about p a{color:#118899;}
+.about p a:hover{color:#CC0000;}
+.rel .tit{padding-left:10px;height:28px;line-height:28px;background:#000;}
+.videoTit{padding-left:10px;height:32px;line-height:32px;background:#5E5E5E;}
+.rel .tit h2{color:#FFF;}
+.rel ul{}
+.rel ul li{line-height:21px;}
+.rel a{color:#118899;}
+.rel a:hover{color:#CC0000;}
+
+.question{padding:20px 0;border-bottom:dashed 1px #CCC;}
+.qTitle{margin-bottom:10px;}
+.introduce .qTitle h2{font-size:16px;}
+.qTitle h2 span{color:#ED2724;}
+.question ul li{line-height:24px;}
+.question ul li input{position:relative;top:3px;}
+
+.subBtn{padding:20px;text-align:center;}
+.subBtn input{width:120px;height:35px;border-radius:6px;border:solid 1px #CCC;background:#EDEDED;cursor:pointer;}
+
+.list{margin-bottom:20px;line-height:30px;}
+.list img {float:right;}
+.list a{color:#003399;}
+.list span.red{color:red; font-size:16px;font-weight:bold;cursor:pointer;}
+
+#list{margin-bottom:30px;padding:20px;border:solid 1px #CCC;background:#FFF;}
+#list li{float:left;width:150px;line-height:20px;font-family:Arial, Helvetica, sans-serif;}
+footer a{color:#CCC;}
+footer a:hover{color:#FFF;}
